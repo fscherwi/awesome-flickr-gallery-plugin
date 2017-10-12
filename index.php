@@ -65,6 +65,10 @@ if (!is_admin()) {
 
     $galleries = get_option('afg_galleries');
     foreach ($galleries as $gallery) {
+	if ( empty( $gallery['slideshow_option'] ) || ! isset( $gallery['slideshow_option'] ) ) { 
+		break;
+	}
+	    
         if ($gallery['slideshow_option'] == 'colorbox') {
             $enable_colorbox = true;
             break;
